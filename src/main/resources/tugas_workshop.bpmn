@@ -15,14 +15,14 @@
     </bpmn:exclusiveGateway>
     <bpmn:endEvent id="Event_0gsgqzs" name="Izin Diterima">
       <bpmn:extensionElements>
-        <camunda:executionListener expression="${notifier.getTelegramService().getInstance().account(&#34;fadhilah&#34;).setText(&#34;Izin Kamu Disetujui&#34;).send()}${notifier.getEmailService().getInstance().setFrom(&#34;peoplegrowth@javan.co.id&#34;).setTo(&#34;adam@javan.co.id&#34;).setSubject(&#34;Perihal Izin&#34;).setText(&#34;Selamat Izin Kamu Disetujui&#34;).send()}" event="start" />
+        <camunda:executionListener expression="${notifier.getTelegramService().getInstance().account(&#34;fadhilah&#34;).setText(&#34;Izin Kamu Disetujui dengan catatan : &#34;.concat(remark)).send()}${notifier.getEmailService().getInstance().setFrom(&#34;peoplegrowth@javan.co.id&#34;).setTo(&#34;adam@javan.co.id&#34;).setSubject(&#34;Perihal Izin&#34;).setText(&#34;Selamat Izin Kamu Disetujui dengan catatan : &#34;.concat(remark)).send()}" event="start" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0amj0xz</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_08y0ybv" />
     </bpmn:endEvent>
     <bpmn:endEvent id="Event_0o6jq4i" name="Izin Ditolak">
       <bpmn:extensionElements>
-        <camunda:executionListener expression="${notifier.getTelegramService().getInstance().group(&#34;Notifier&#34;).setText(&#34;Izin Kamu Ditolak&#34;).send()}${notifier.getEmailService().getInstance().setFrom(&#34;peoplegrowth@javan.co.id&#34;).setTo(&#34;adam@javan.co.id&#34;).setSubject(&#34;Perihal Izin&#34;).setText(&#34;Maaf Izin Kamu Belum Disetujui&#34;).send()}" event="start" />
+        <camunda:executionListener expression="${notifier.getTelegramService().getInstance().group(&#34;Notifier&#34;).setText(&#34;Izin Kamu Ditolak dengan catatan : &#34;.concat(remark)).send()}${notifier.getEmailService().getInstance().setFrom(&#34;peoplegrowth@javan.co.id&#34;).setTo(&#34;adam@javan.co.id&#34;).setSubject(&#34;Perihal Izin&#34;).setText(&#34;Maaf Izin Kamu Belum Disetujui dengan catatan : &#34;.concat(remark)).send()}" event="start" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0krgy4e</bpmn:incoming>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0dhc8hi" />
